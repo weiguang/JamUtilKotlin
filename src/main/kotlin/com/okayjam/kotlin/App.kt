@@ -1,12 +1,12 @@
-package okayjam
+package com.okayjam.kotlin
 
 import java.lang.Exception
 import java.math.BigInteger
-import java.util.stream.Collectors.toList
 
 class App(var height: Int, var width: Int) {
     fun getArea(a: Int, b: Int): Int = a * b
 }
+
 
 
 fun main (args: Array<String>) {
@@ -31,7 +31,7 @@ fun main (args: Array<String>) {
     var i={x:Int , y:Int -> x+y}
     println(i(1,2))
 
-    println(getRoundArea(radius= 1F))
+    println(getRoundArea(radius = 1F))
 
 
     var aa = 123
