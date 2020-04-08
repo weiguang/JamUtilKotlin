@@ -1,6 +1,7 @@
 package com.okayjam.kotlin
 
 
+
 class App(var height: Int, var width: Int) {
     fun getArea(a: Int, b: Int): Int = a * b
 }
@@ -8,6 +9,7 @@ class App(var height: Int, var width: Int) {
 
 
 fun main () {
+
         val a = """JAM\sd1234546567658768!@@#$%%^^&***?><"""
         println(a)
         println("Hello World!")
@@ -53,6 +55,8 @@ fun main () {
 
 
     }
+
+
 
 
 fun getRoundArea(PI:Float=3.1415926F , radius:Float):Float{    //为变量PI赋予了默认值 Pi,这样，调用该方法时可以不再传递PI。但，如果我们想传入的值和默认值不一致时还是需要传入的
