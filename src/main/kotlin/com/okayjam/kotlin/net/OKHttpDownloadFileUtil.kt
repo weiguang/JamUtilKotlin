@@ -1,6 +1,5 @@
-package com.okayjam.kotlin.util
+package com.okayjam.kotlin.net
 
-import com.okayjam.kotlin.net.OKHttpUtil
 import okhttp3.Call
 import org.apache.commons.io.FilenameUtils
 import org.slf4j.Logger
@@ -26,7 +25,13 @@ class OKHttpDownloadFileUtil {
             params: String?,
             path: String?
         ): String? {
-            return download(downloadUrl, requestMethod, params, null, path)
+            return download(
+                downloadUrl,
+                requestMethod,
+                params,
+                null,
+                path
+            )
         }
 
         /**

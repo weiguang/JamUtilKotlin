@@ -1,6 +1,6 @@
 package com.okayjam.kotlin.util
 
-import com.okayjam.kotlin.net.OKHttpUtil
+import com.okayjam.kotlin.net.OKHttpDownloadFileUtil
 import org.junit.Test
 import java.io.IOException
 
