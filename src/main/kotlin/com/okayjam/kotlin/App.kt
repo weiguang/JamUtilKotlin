@@ -1,7 +1,5 @@
 package com.okayjam.kotlin
 
-import java.lang.Exception
-import java.math.BigInteger
 
 class App(var height: Int, var width: Int) {
     fun getArea(a: Int, b: Int): Int = a * b
@@ -9,7 +7,7 @@ class App(var height: Int, var width: Int) {
 
 
 
-fun main (args: Array<String>) {
+fun main () {
         val a = """JAM\sd1234546567658768!@@#$%%^^&***?><"""
         println(a)
         println("Hello World!")
@@ -48,8 +46,6 @@ fun main (args: Array<String>) {
     }
 
 
-    val num = BigInteger("1")    //声明BigInteger常量时传入一个字符串类型的数值
-    println(fact(num))
 
     var rect = App(5, 10) //构建Rect对象，不需要new
     println("矩形的宽${rect.width}高${rect.height}") //引用Rect类中成员变量
@@ -63,10 +59,4 @@ fun getRoundArea(PI:Float=3.1415926F , radius:Float):Float{    //为变量PI赋�
     return PI*radius*radius
 }
 
- fun fact(num: BigInteger): BigInteger {
-    return if (num == BigInteger.ONE) {
-        BigInteger.ONE
-    } else {
-        num * fact(num - BigInteger.ONE)
-    }
-}
+

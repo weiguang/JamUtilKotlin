@@ -7,7 +7,7 @@ import kotlin.math.min
 class CollectionUtil {
 
     companion object{
-        val PAGE_SIZE = 2000
+         const val PAGE_SIZE = 2000
 
         open fun <T> subList(list: List<T>, pageSize1: Int = PAGE_SIZE): List<List<T>>? {
             var pageSize: Int = pageSize1
