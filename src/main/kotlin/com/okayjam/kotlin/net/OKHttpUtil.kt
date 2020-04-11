@@ -1,13 +1,15 @@
 package com.okayjam.kotlin.net
 
 import com.alibaba.fastjson.JSONObject
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 import java.util.function.Consumer
+
 
 /**
  *
@@ -43,20 +45,19 @@ class OKHttpUtil {
                 return null;
             }
             val reqBuilder = Request.Builder().url(url)
-            if (headers != null) {
+            headers?.let {
                 val header1: JSONObject = JSONObject.parseObject(headers)
                 header1.keys.forEach(Consumer { re: String? -> reqBuilder.addHeader(re!!, header1.getString(re)) })
             }
 
-            var body: RequestBody? = null
-            body = if (params != null) {
-                RequestBody.create(JSON, params)
+            var body: RequestBody?  = if (params != null) {
+                 params.toRequestBody(JSON)
             } else {
-                RequestBody.create(null, ByteArray(0))
+                ByteArray(0).toRequestBody(null)
             }
 
             // set default method
-            var requestMethod1 : String? = null
+            var requestMethod1 : String? = requestMethod
             if (requestMethod == null || HTTP_REQUEST_METHOD_GET == requestMethod) {
                 requestMethod1 = HTTP_REQUEST_METHOD_GET
                 body = null

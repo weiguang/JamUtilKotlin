@@ -53,13 +53,19 @@ fun main () {
     println("矩形的宽${rect.width}高${rect.height}") //引用Rect类中成员变量
     println("矩形的面积是${rect.getArea(rect.width, rect.height)}") //引用Rect类中成员变量
 
+    val result = method1(p2 = 2.5)
+    println(result)
 
-    }
+}
 
 
+fun method1(p1:Int=10 , p2:Double):Double{
+    return p1 * p2
+}
 
 
-fun getRoundArea(PI:Float=3.1415926F , radius:Float):Float{    //为变量PI赋予了默认值 Pi,这样，调用该方法时可以不再传递PI。但，如果我们想传入的值和默认值不一致时还是需要传入的
+//为变量PI赋予了默认值 Pi,这样，调用该方法时可以不再传递PI。但，如果我们想传入的值和默认值不一致时还是需要传入的
+fun getRoundArea(PI:Float=3.1415926F , radius:Float):Float{
     return PI*radius*radius
 }
 

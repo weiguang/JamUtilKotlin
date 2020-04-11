@@ -19,7 +19,8 @@ class OKHttpUtilTest {
     fun testRequest() {
         val url = "https://www.baidu.com"
         //        String url = "http://127.0.0.1/index.html";
-        val response = OKHttpUtil.requert(url, OKHttpUtil.HTTP_REQUEST_METHOD_GET, null, null)
+        val params : String  = "{\"jam\":1}";
+        val response = OKHttpUtil.requert(url, OKHttpUtil.HTTP_REQUEST_METHOD_GET, params, params)
         println(" message:${response?.message}, body:${response?.body?.string()}")
     }
 
