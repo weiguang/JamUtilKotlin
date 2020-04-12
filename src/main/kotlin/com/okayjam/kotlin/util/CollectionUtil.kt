@@ -9,7 +9,8 @@ class CollectionUtil {
     companion object{
          const val PAGE_SIZE = 2000
 
-        open fun <T> subList(list: List<T>, pageSize1: Int = PAGE_SIZE): List<List<T>>? {
+        @JvmStatic
+        fun <T> subList(list: List<T>, pageSize1: Int = PAGE_SIZE): List<List<T>>? {
             var pageSize: Int = pageSize1
             if (CollectionUtils.isEmpty(list) ) {
                 return null

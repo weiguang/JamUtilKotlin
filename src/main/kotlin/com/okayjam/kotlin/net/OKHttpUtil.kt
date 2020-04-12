@@ -5,6 +5,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 import java.util.function.Consumer
@@ -33,10 +34,12 @@ class OKHttpUtil {
             client =  builder.build()
         }
 
+        @JvmStatic
         fun getClient(): OkHttpClient? {
             return client
         }
 
+        @JvmStatic
         @Throws(IOException::class)
         fun getConnection(url: String?, requestMethod: String?, headers: String?, params: String?): Call? {
             if (url == null) {
@@ -48,12 +51,7 @@ class OKHttpUtil {
                 header1.keys.forEach(Consumer { re: String? -> reqBuilder.addHeader(re!!, header1.getString(re)) })
             }
 
-            var body: RequestBody? = null
-            body = if (params != null) {
-                RequestBody.create(JSON, params)
-            } else {
-                RequestBody.create(null, ByteArray(0))
-            }
+            var body: RequestBody? = params?.toRequestBody(JSON) ?: ByteArray(0).toRequestBody(null)
 
             // set default method
             var requestMethod1 : String? = null
@@ -66,11 +64,13 @@ class OKHttpUtil {
             return getClient()!!.newCall(reqBuilder.build())
         }
 
+        @JvmStatic
         @Throws(IOException::class)
         fun requert(url: String?, method: String?, headers: String?, params: String?): Response? {
           return  getConnection(url, method, headers, params)?.execute()
         }
 
+        @JvmStatic
         @Throws(IOException::class)
         fun requertAsync(url: String?, method: String?, headers: String?, params: String?) {
             val conn = getConnection(url, method, headers, params)

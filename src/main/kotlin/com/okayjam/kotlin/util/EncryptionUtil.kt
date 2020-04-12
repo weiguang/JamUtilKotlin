@@ -9,6 +9,7 @@ class EncryptionUtil private constructor() {
          * @Author Weiguang Chen(chen2621978@gmail.com) on 2017/7/15 17:21
          * @description MD5, length:32
          */
+        @JvmStatic
         fun getMD5(str: String): String? {
             val digester: MessageDigest = try {
                 MessageDigest.getInstance("MD5")
@@ -32,6 +33,7 @@ class EncryptionUtil private constructor() {
          * @Author Weiguang Chen(chen2621978@gmail.com) on 2017/7/15 17:21
          * @description SHA-256, length:64
          */
+        @JvmStatic
         fun getSHA256(base: String): String? {
             return try {
                 val digest = MessageDigest.getInstance("SHA-256")

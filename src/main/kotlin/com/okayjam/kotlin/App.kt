@@ -6,9 +6,28 @@ class App(var height: Int, var width: Int) {
     fun getArea(a: Int, b: Int): Int = a * b
 }
 
+fun String.lastChar(): Char  {
+    return this.get(this.length - 1)
+}
+
+val String.lastChar1: Char
+    get() = get(length -1)
+
+fun test(list:Collection<Any>) {
+    when (list ) {
+        is List<Any> -> {
+            list.subList(0,1)
+        }
+        is Set<Any> -> {
+            list.size
+        }
+    }
+}
 
 
 fun main () {
+
+
 
         val a = """JAM\sd1234546567658768!@@#$%%^^&***?><"""
         println(a)
@@ -54,7 +73,10 @@ fun main () {
     println("矩形的面积是${rect.getArea(rect.width, rect.height)}") //引用Rect类中成员变量
 
 
-    }
+    val lastChar = "Jam".lastChar()
+    val lastChar1 = "Jam".lastChar1
+
+}
 
 
 
@@ -62,5 +84,8 @@ fun main () {
 fun getRoundArea(PI:Float=3.1415926F , radius:Float):Float{    //为变量PI赋予了默认值 Pi,这样，调用该方法时可以不再传递PI。但，如果我们想传入的值和默认值不一致时还是需要传入的
     return PI*radius*radius
 }
+
+
+
 
 

@@ -15,6 +15,7 @@ class ThreadPoolUtil {
          * @param poolName 线程池名称
          * @return 返回线程池，默认线程数 = 核心数 * 2
          */
+        @JvmStatic
         fun getThreadPool(poolName: String?): ThreadPoolExecutor {
             val threadNumber = AVAILABLE_PROCESSORS * 2
             return getThreadPool(poolName, threadNumber)
@@ -24,6 +25,7 @@ class ThreadPoolUtil {
          * 获取线程池方法
          * @return 返回线程池
          */
+        @JvmStatic
         fun getThreadPool(poolName: String?, threadNumber: Int): ThreadPoolExecutor {
             // 建立线程名字
             val namedThreadFactory: ThreadFactory = MyThreadFactory(poolName)
@@ -39,6 +41,7 @@ class ThreadPoolUtil {
          * 关闭线程池
          * @param pool 线程池
          */
+        @JvmStatic
         fun poolStopAndWait(pool: ExecutorService) { // 关闭线程池
             pool.shutdown()
             //判断线程池是否结束

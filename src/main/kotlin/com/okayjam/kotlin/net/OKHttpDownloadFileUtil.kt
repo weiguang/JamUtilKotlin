@@ -18,6 +18,7 @@ class OKHttpDownloadFileUtil {
     companion object {
         private val LOGGER: Logger = LoggerFactory.getLogger(OKHttpDownloadFileUtil::class.java)
 
+        @JvmStatic
         @Throws(IOException::class)
         fun download(
             downloadUrl: String?,
@@ -44,6 +45,7 @@ class OKHttpDownloadFileUtil {
          * @return 返回最终文件保存的路径
          * @throws IOException IO异常
          */
+        @JvmStatic
         @Throws(IOException::class)
         fun download(
             downloadUrl: String?,
@@ -88,6 +90,7 @@ class OKHttpDownloadFileUtil {
          * @param path 保存文件的路径
          * @throws IOException IO
          */
+        @JvmStatic
         @Throws(IOException::class)
         fun saveToFile(inStream: InputStream, path: String?) {
             val fs = FileOutputStream(path)
