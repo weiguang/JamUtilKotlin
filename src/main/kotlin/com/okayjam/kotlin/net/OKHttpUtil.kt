@@ -42,10 +42,7 @@ class OKHttpUtil {
 
         @JvmStatic
         @Throws(IOException::class)
-        fun getConnection(url: String?, requestMethod: String?, headers: String?, params: String?): Call? {
-            if (url == null) {
-                return null;
-            }
+        fun getConnection(url: String, requestMethod: String?, headers: String?, params: String?): Call? {
             val reqBuilder = Request.Builder().url(url)
             headers?.let {
                 val header1: JSONObject = JSONObject.parseObject(headers)
@@ -62,18 +59,18 @@ class OKHttpUtil {
             }
 
             reqBuilder.method(requestMethod1!!, body)
-            return getClient()!!.newCall(reqBuilder.build())
+            return getClient()?.newCall(reqBuilder.build())
         }
 
         @JvmStatic
         @Throws(IOException::class)
-        fun requert(url: String?, method: String?, headers: String?, params: String?): Response? {
+        fun requert(url: String, method: String?, headers: String?, params: String?): Response? {
           return  getConnection(url, method, headers, params)?.execute()
         }
 
         @JvmStatic
         @Throws(IOException::class)
-        fun requertAsync(url: String?, method: String?, headers: String?, params: String?) {
+        fun requertAsync(url: String, method: String?, headers: String?, params: String?) {
             val conn = getConnection(url, method, headers, params)
             conn!!.enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {

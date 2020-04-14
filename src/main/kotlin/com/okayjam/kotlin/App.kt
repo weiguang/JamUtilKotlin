@@ -24,12 +24,38 @@ fun test(list:Collection<Any>) {
     }
 }
 
+data class Person( val name: String , val age: Int)
 
 fun main () {
 
+    val filter1 = listOf(1, 2, 3).asSequence().filter { it > 1 }
 
+    val strings= listOf ("abc", "cdef")
+    println(strings.flatMap { it.toList() }.toSet())
+    println(strings.map { it.toList()})
+    println(strings.map { it.toList() }.flatten().toSet())
 
-        val a = """JAM\sd1234546567658768!@@#$%%^^&***?><"""
+    val people= listOf(Person ("Alice" , 29) , Person ("Bob", 31), Person ("Bob1", 31),  Person ("John", 32))
+
+    val ageJudge = { p:Person -> p.age <= 30 }
+    val all = people.all(ageJudge)
+    val any = people.any(ageJudge)
+    println( "$all $any")
+
+    val count = people.count(ageJudge)
+    val size = people.filter(ageJudge).size
+
+    val ageMap: Map<Int, List<Person>> = people.groupBy { it.age }
+
+    val list= listOf(1, 2, 3, 4, 4)
+    val maxBy = people.maxBy { it.age }
+    println(maxBy)
+
+    val maxAge = people.maxBy(Person::age)?.age
+    val maxAgePeoples = people.filter { it.age == maxAge }
+    println(maxAgePeoples)
+
+    val a = """JAM\sd1234546567658768!@@#$%%^^&***?><"""
         println(a)
         println("Hello World!")
 
@@ -41,8 +67,7 @@ fun main () {
         map["jam"] = "Jam1111111";
         println(map["jam"])
 
-        var list1=listOf(1,2,3);
-
+     var list1=listOf(1,2,3);
     val filter = list1.filter { x -> x > 2 }
     println(list1)
     println(filter)

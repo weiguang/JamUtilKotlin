@@ -21,7 +21,7 @@ class OKHttpDownloadFileUtil {
         @JvmStatic
         @Throws(IOException::class)
         fun download(
-            downloadUrl: String?,
+            downloadUrl: String,
             requestMethod: String?,
             params: String?,
             path: String?
@@ -48,7 +48,7 @@ class OKHttpDownloadFileUtil {
         @JvmStatic
         @Throws(IOException::class)
         fun download(
-            downloadUrl: String?,
+            downloadUrl: String,
             requestMethod: String?,
             params: String?,
             headers: String?,
